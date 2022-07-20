@@ -13,10 +13,7 @@ const Cart: React.FC = (): JSX.Element => {
         <Fragment>
           {state.shoppingCart.map((product) => (
             <Product
-              key={product.id}
-              image={product.image}
-              title={product.title}
-            />
+              key={product.id}   {...product}/>
           ))}
         </Fragment>
       ) : (
