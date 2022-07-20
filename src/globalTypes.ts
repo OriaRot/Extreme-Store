@@ -9,6 +9,7 @@ export interface ProductInterface{
         rate: number;
     }
     title: string;
+    cartCnt?: number;
 }
 
 export interface StateInterface {

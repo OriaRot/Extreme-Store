@@ -16,11 +16,15 @@ export const reducerFn = (state: StateInterface, action: ActionInterface):StateI
     }
     case "ADD_TO_CART":
       let newCart = state.shoppingCart
-      newCart.push(payload as ProductInterface)
+      if(newCart.includes(payload as ProductInterface)) {
+        return {...state, }
+      }else{
+        newCart.push(payload as ProductInterface)
       return{
         ...state,
         shoppingCart: newCart
       }
+    }
     default: return state
   }
 };

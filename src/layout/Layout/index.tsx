@@ -10,13 +10,7 @@ const Layout: React.FC<LayoutProps> = ({children}):JSX.Element =>{
     return(
         <main>
             <header>
-                <button onClick={()=>navigate('/')}>
-                LOGO
-                </button>
-                
-                <button onClick={()=>navigate('/cart')}>
-                    Go to cart
-                </button>
+               
             </header>
             <section className="products_container">
                 {children}
