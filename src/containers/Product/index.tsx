@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { FormatCurreny } from "../../utilities/formatCurrency";
-// import './product.css'
+import { productsCtx } from "../../context";
+import { FormatCurrency } from "../../utilities/formatCurrency";
+
+interface CartInterface{
+  
+}
 
 interface ProductProps {
   id: number;
@@ -14,14 +19,23 @@ const Product: React.FC<ProductProps> = ({
   title,
   price,
   image,
+  
 }): JSX.Element => {
-  const navigate = useNavigate();
+  const state = useContext(productsCtx) 
+   const navigate = useNavigate();
   const handleClick = () => navigate(`products/${title.trim()}`);
   const quantity: number = 1;
 
+  const handleCart = ()=>{
+   state?.products.map(item=>{})
+  }
+
+
+
   return (
-    <Card className="h-100">
+    <Card className="h-100" >
       <Card.Img
+      onClick={handleClick}
         variant="top"
         src={image}
         height="200px"
@@ -30,7 +44,7 @@ const Product: React.FC<ProductProps> = ({
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
           <span className="fs-2">{title}</span>
-          <span className="ms-2 text-muted">{FormatCurreny(price)}</span>
+          <span className="ms-2 text-muted">{FormatCurrency(price)}</span>
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
@@ -41,15 +55,15 @@ const Product: React.FC<ProductProps> = ({
               style={{ gap: ".5rem" }}
             >
               <div className="d-flex align-items-base-line" style={{ gap: ".5rem" }}> 
-              <Button>-</Button>
+              <Button onClick={handleCart}>-</Button>
               <span className="fs-3">{quantity} <span className="fs-5">in cart</span></span>    
-              <Button>+</Button>
+              <Button onClick={handleCart}>+</Button>
               </div>
               <div
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                 <Button variant="danger">remove</Button>
+                 <Button variant="danger" size="sm">remove</Button>
               </div>
             </div>
           )}

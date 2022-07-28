@@ -14,7 +14,7 @@ export const Main: React.FC = (): JSX.Element => {
   console.log(state);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://extreme-shop.herokuapp.com/api/products/all")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "ADD_PRODUCTS", payload: data }));
   }, []);
