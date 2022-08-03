@@ -3,8 +3,9 @@ import { Container } from "react-bootstrap";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { Navbar } from "../../containers/Navbar";
 import { productsCtx } from "../../context";
+import { ShoppingCartProvider } from "../../context/ShoppingCartCtx";
 import { About } from "../../pages/About";
-import { Cart } from "../../pages/Cart";
+import { ShoppingCart1 } from "../../pages/ShoppingCart";
 import { Home } from "../../pages/Home";
 import { ProductDetail } from "../../pages/ProductDetail";
 import { initialState, reducerFn } from "../../reducer";
@@ -19,14 +20,14 @@ export const Main: React.FC = (): JSX.Element => {
       .then((data) => dispatch({ type: "ADD_PRODUCTS", payload: data }));
   }, []);
   return (
-    <>
+    <productsCtx.Provider value={state}>
+      <ShoppingCartProvider>
     <Navbar/>
     <Container className="mb-4">
-    <productsCtx.Provider value={state}>
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<ShoppingCart1 />} />
             <Route path="/about" element={<About />} />
             <Route
               path="products/:title"
@@ -34,8 +35,8 @@ export const Main: React.FC = (): JSX.Element => {
             />
           </Routes>
       </BrowserRouter>
-    </productsCtx.Provider>
     </Container>
-    </>
+    </ShoppingCartProvider>
+    </productsCtx.Provider>
   );
 };
