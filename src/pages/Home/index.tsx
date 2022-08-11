@@ -14,9 +14,9 @@ const Home: React.FC = (): JSX.Element => {
             <>
              <h1>store</h1>
 
-             <Row md={2} xs={1} lg={3} classname="g-3">
+             <Row md={2} xs={1} lg={3}  classname="g-3">
                  {state.products.map(product => (
-                     <Col key={product.id}><Product {...product}/> </Col>    
+                     <Col className="mb-2" key={product.id}><Product {...product}/> </Col>    
                  ))}
                   
              </Row>

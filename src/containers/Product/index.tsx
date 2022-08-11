@@ -18,7 +18,6 @@ const Product: React.FC<ProductProps> = ({
   price,
   image,
 }): JSX.Element => {
-  const state = useContext(productsCtx);
   const navigate = useNavigate();
   const handleClick = () => navigate(`products/${title.trim()}`);
   const {
@@ -37,7 +36,7 @@ const Product: React.FC<ProductProps> = ({
         variant="top"
         src={image}
         height="200px"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "contain" }}
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">

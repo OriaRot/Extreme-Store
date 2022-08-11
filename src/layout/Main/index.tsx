@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { Container } from "react-bootstrap";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Navbar } from "../../containers/Navbar";
 import { productsCtx } from "../../context";
 import { ShoppingCartProvider } from "../../context/ShoppingCartCtx";
@@ -24,7 +24,6 @@ export const Main: React.FC = (): JSX.Element => {
       <ShoppingCartProvider>
     <Navbar/>
     <Container className="mb-4">
-      <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<ShoppingCart1 />} />
@@ -34,7 +33,6 @@ export const Main: React.FC = (): JSX.Element => {
               element={<ProductDetail dispatch={dispatch} />}
             />
           </Routes>
-      </BrowserRouter>
     </Container>
     </ShoppingCartProvider>
     </productsCtx.Provider>
