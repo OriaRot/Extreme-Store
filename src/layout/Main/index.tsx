@@ -5,7 +5,6 @@ import { Navbar } from "../../containers/Navbar";
 import { productsCtx } from "../../context";
 import { ShoppingCartProvider } from "../../context/ShoppingCartCtx";
 import { About } from "../../pages/About";
-import { ShoppingCart1 } from "../../pages/ShoppingCart";
 import { Home } from "../../pages/Home";
 import { ProductDetail } from "../../pages/ProductDetail";
 import { initialState, reducerFn } from "../../reducer";
@@ -22,19 +21,16 @@ export const Main: React.FC = (): JSX.Element => {
   return (
     <productsCtx.Provider value={state}>
       <ShoppingCartProvider>
-    <Navbar/>
-    <Container className="mb-4">
+        <Navbar />
+        <Container className="mb-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<ShoppingCart1 />} />
+            <Route path="/cart" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route
-              path="products/:title"
-              element={<ProductDetail dispatch={dispatch} />}
-            />
+            <Route path="products/:title" element={<ProductDetail />} />
           </Routes>
-    </Container>
-    </ShoppingCartProvider>
+        </Container>
+      </ShoppingCartProvider>
     </productsCtx.Provider>
   );
 };

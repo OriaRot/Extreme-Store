@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Button, Stack } from "react-bootstrap";
 import { productsCtx } from "../../context";
 import { useShoppingCart } from "../../context/ShoppingCartCtx";
@@ -22,7 +22,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
     <Stack direction="horizontal" gap={2} className="d-flex align-item-center">
       <img
         src={item.image}
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+        style={{ width: "125px", height: "75px", objectFit: "contain" }}
         alt={item.title}
       />
       <div className="mb-auto">
@@ -38,10 +38,14 @@ export function CartItem({ id, quantity }: CartItemProps) {
       <div className="text-muted" style={{ fontSize: ".85rem" }}>
         {FormatCurrency(item.price)}
       </div>
-      <div>
-      {FormatCurrency(item.price * quantity)}
-      </div>
-      <Button variant="outline-danger" size="sm" onClick={()=>removeFromCart(item.id)}>&times;</Button>
+      <div>{FormatCurrency(item.price * quantity)}</div>
+      <Button
+        variant="outline-danger"
+        size="sm"
+        onClick={() => removeFromCart(item.id)}
+      >
+        &times;
+      </Button>
     </Stack>
   );
 }
