@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
+import { Loader } from "../../components/Loading";
 import { Product } from "../../containers/Product";
 import { productsCtx } from "../../context";
 import { StateInterface } from "../../globalTypes";
@@ -22,7 +23,7 @@ const Home: React.FC = (): JSX.Element => {
           </Row>
         </>
       ) : (
-        <h1>loading...</h1>
+        <Loader/>
       )}
     </>
   );
