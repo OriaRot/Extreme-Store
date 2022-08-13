@@ -25,7 +25,7 @@ export const Main: React.FC = (): JSX.Element => {
         <Container className="mb-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Home />} />
+            <Route path="/store" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="products/:title" element={<ProductDetail />} />
           </Routes>

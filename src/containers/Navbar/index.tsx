@@ -3,25 +3,26 @@ import {
   Container,
   Nav,
   Navbar as Navbarbs,
-  NavLink,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppingCartCtx";
 
 export function Navbar() {
   const { openCart, cartQuantity } = useShoppingCart();
+  const linkstyle: object = { textDecoration: 'none', color:'rgba(0,0,0,.55)' }
   return (
     <Navbarbs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
         <Nav className="me-auto">
-          <NavLink to="/" as={NavLink}>
-            Home
-          </NavLink>
-          <Nav.Link to="/store" as={NavLink}>
-            Store
+          <Nav.Link >
+          <Link style={linkstyle} to="/">Home</Link>
           </Nav.Link>
-          <NavLink to="/about" as={NavLink}>
-            About
-          </NavLink>
+          <Nav.Link >
+          <Link style={linkstyle} to="/store">Store</Link>
+          </Nav.Link>
+          <Nav.Link>
+          <Link style={linkstyle} to="/about">About</Link>
+          </Nav.Link>
         </Nav>
         {cartQuantity > 0 && (
           <Button
