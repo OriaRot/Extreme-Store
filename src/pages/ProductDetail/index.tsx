@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { TextEncoderStream } from "stream/web";
 import { CartButtons } from "../../components/CartButtons";
 import { Loader } from "../../components/Loading";
 import { productsCtx } from "../../context";
@@ -22,11 +23,19 @@ const ProductDetail: React.FC = (): JSX.Element => {
       {product? (
         <>
     
-    <Row key={product.id} md={2} xs={1} lg={3} classname="g-3">
-              {/* <Col>{product.image}</Col> */}
-              <Col>{product.description}</Col>
-              <Col><span className="ms-2 text-muted">{FormatCurrency(product.price)}</span></Col>
+    <Row key={product.id} md={2} xs={1} classname="g-3">
+              <Col style={{height:""}}>
+              <div className="fs-3 mb-2">{title}</div>
+              <div className="fs-4">{product.description}</div>
+              </Col>
+              <Col><img style={{maxWidth: "500px", maxHeight: "500px"}}
+              src={product.image}
+              alt={product.title}
+              /></Col>
+              <Col className="text-center">
+              <span className="fs-5 text-muted">{FormatCurrency(product.price)}</span>
               <CartButtons id={product.id} quantity={quantity}/>
+              </Col>
           </Row>
         </>
       ) : (
