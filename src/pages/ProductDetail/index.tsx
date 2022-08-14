@@ -28,7 +28,7 @@ const ProductDetail: React.FC = (): JSX.Element => {
               <div className="fs-3 fw-bold mb-2">{title}</div>
               <div className="fs-4">{product.description}</div>
               </Col>
-              <Col><img style={{maxWidth: "500px", maxHeight: "500px"}}
+              <Col><img style={{maxWidth: "400px", maxHeight: "500px"}}
               src={product.image}
               alt={product.title}
               /></Col>
