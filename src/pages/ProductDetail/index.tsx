@@ -28,10 +28,15 @@ const ProductDetail: React.FC = (): JSX.Element => {
               <div className="fs-3 fw-bold mb-2">{title}</div>
               <div className="fs-4">{product.description}</div>
               </Col>
-              <Col><img style={{maxWidth: "400px", maxHeight: "500px"}}
+              <Col>
+              <div>
+              <img style={{ 
+                objectFit: "contain" ,
+                maxWidth: "350px", maxHeight: "500px"
+              }}
               src={product.image}
               alt={product.title}
-              /></Col>
+              /></div></Col>
               <Col className="text-center">
               <span className="fs-5 text-muted">{FormatCurrency(product.price)}</span>
               <CartButtons id={product.id} quantity={quantity}/>
