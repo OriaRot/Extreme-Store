@@ -30,20 +30,3 @@ const Home: React.FC = (): JSX.Element => {
 };
 export { Home };
 
-// <Fragment>
-// {
-//     state.products.length ? (
-//         <Fragment>
-//         {state.products.map(product =>(
-//             <Product
-//             key={product.id}
-//             image={product.image}
-//             title={product.title}
-//             />
-//         ))}
-//         </Fragment>
-//         ):(
-//             <h2>Loading...</h2>
-//             )
-//         }
-//             </Fragment>
