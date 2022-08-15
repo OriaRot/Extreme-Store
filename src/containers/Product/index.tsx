@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CartButtons } from "../../components/CartButtons";
 import { useShoppingCart } from "../../context/ShoppingCartCtx";
 import { FormatCurrency } from "../../utilities/formatCurrency";
@@ -18,7 +18,8 @@ const Product: React.FC<ProductProps> = ({
   image,
 }): JSX.Element => {
   const navigate = useNavigate();
-  const handleClick = () => navigate(`/${title.trim()}`);
+  const {category} = useParams()
+  const handleClick = () => navigate(`/store/${category}/${title.trim()}`);
   const {getItemQuntity} = useShoppingCart();
   const quantity = getItemQuntity(id)
  

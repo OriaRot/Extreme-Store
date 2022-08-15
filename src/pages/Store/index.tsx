@@ -12,6 +12,7 @@ const Store: React.FC = (): JSX.Element => {
     <>
       {state.products.length ? (
         <>
+        <h1>All products</h1>
           <Row md={2} xs={1} lg={3} classname="g-3">
             {state.products.map((product) => (
               <Col className="mb-2" key={product.id}>
