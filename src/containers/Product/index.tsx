@@ -18,7 +18,7 @@ const Product: React.FC<ProductProps> = ({
   image,
 }): JSX.Element => {
   const navigate = useNavigate();
-  const handleClick = () => navigate(`products/${title.trim()}`);
+  const handleClick = () => navigate(`/${title.trim()}`);
   const {getItemQuntity} = useShoppingCart();
   const quantity = getItemQuntity(id)
  

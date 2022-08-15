@@ -5,9 +5,11 @@ import { Navbar } from "../../containers/Navbar";
 import { productsCtx } from "../../context";
 import { ShoppingCartProvider } from "../../context/ShoppingCartCtx";
 import { About } from "../../pages/About";
-import { Home } from "../../pages/Home";
+import { Store } from "../../pages/Store";
 import { ProductDetail } from "../../pages/ProductDetail";
 import { initialState, reducerFn } from "../../reducer";
+import { Home } from "../../pages/Home";
+import { CategoryStore } from "../../pages/Category";
 export const Main: React.FC = (): JSX.Element => {
   const [state, dispatch] = useReducer(reducerFn, initialState);
 
@@ -25,10 +27,10 @@ export const Main: React.FC = (): JSX.Element => {
         <Container className="mb-4">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Home />} />
+            <Route path="/store" element={<Store />} />
             <Route path="/about" element={<About />} />
-            <Route path="/products/:title" element={<ProductDetail />} />
-            <Route path="/store/products/:title" element={<ProductDetail />} />
+            <Route path="/store/:category" element={<CategoryStore />} />
+            <Route path="/:title" element={<ProductDetail />} />
           </Routes>
         </Container>
       </ShoppingCartProvider>
