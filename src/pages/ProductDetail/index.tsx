@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { TextEncoderStream } from "stream/web";
 import { CartButtons } from "../../components/CartButtons";
 import { Loader } from "../../components/Loading";
 import { productsCtx } from "../../context";
