@@ -19,7 +19,7 @@ const Product: React.FC<ProductProps> = ({
 }): JSX.Element => {
   const navigate = useNavigate();
   const {category} = useParams()
-  const handleClick = () => navigate(`/store/${category}/${title.trim()}`);
+  const handleClick = () => navigate(`/store/${category}/${title.trim().replaceAll("/", "")}`);
   const {getItemQuntity} = useShoppingCart();
   const quantity = getItemQuntity(id)
  
@@ -35,8 +35,8 @@ const Product: React.FC<ProductProps> = ({
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-          <span className="fs-2">{title}</span>
-          <span className="ms-2 text-muted">{FormatCurrency(price)}</span>
+          <span className="fs-3">{title}</span>
+          <span className="ms-0 text-muted">{FormatCurrency(price)}</span>
         </Card.Title>
           <CartButtons id={id} quantity={quantity}/>
       </Card.Body>

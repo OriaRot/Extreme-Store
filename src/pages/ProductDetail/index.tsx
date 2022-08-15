@@ -13,7 +13,7 @@ const ProductDetail: React.FC = (): JSX.Element => {
   const { title } = useParams();
   const { getItemQuntity } = useShoppingCart();
   const product: ProductInterface = state?.products.find(
-    (product) => product.title.trim() === title?.trim()
+    (product) => product.title.trim().replaceAll("/", "") === title?.trim().replaceAll("/", "")
   ) as ProductInterface;
   const quantity = getItemQuntity(product?.id);
   return (
