@@ -1,14 +1,18 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { useNavigate } from 'react-router-dom';
+import electro from "../../assets/carouselimages/electronics.jpg"
+import mens from "../../assets/carouselimages/mens-clothing.jpg"
+import womens from "../../assets/carouselimages/women-clothing.jpg"
+import jewl from "../../assets/carouselimages/jewllery.jpg"
 export function BsCarousel() {
   const navigate = useNavigate()
   return (
-    <Carousel>
+    <Carousel fade>
       <Carousel.Item>
         <img
           className="d-block w-100"
           style={{objectFit: "cover", height: "70vh"}}
-          src="https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={electro}
           alt="Electronics"
           onClick={()=>navigate('/store/electronics')}
         />
@@ -21,7 +25,7 @@ export function BsCarousel() {
         <img
           className="d-block w-100"
           style={{objectFit: "cover", height: "70vh"}}
-          src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={mens}
           alt="Men's clothing"
           onClick={()=>navigate("/store/men's clothing")}
         />
@@ -35,7 +39,7 @@ export function BsCarousel() {
         <img
           className="d-block w-100"
           style={{objectFit: "cover", height: "70vh"}}
-          src="https://images.pexels.com/photos/4530798/pexels-photo-4530798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={womens}
           alt="Women's clothing"
           onClick={()=>navigate("/store/women's clothing")}
         />
@@ -51,7 +55,7 @@ export function BsCarousel() {
         <img
           className="d-block w-100"
           style={{objectFit: "cover", height: "70vh"}}
-          src="https://images.pexels.com/photos/1458867/pexels-photo-1458867.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={jewl}
           alt="Jewllery"
           onClick={()=>navigate("/store/jewelery")}
         />
